@@ -1,0 +1,24 @@
+{
+  "name": "mkt-project",
+  "version": "0.0.1",
+  "main": "src/server.js",
+  "license": "MIT",
+  "description": "Uma APP de fidelização de clientes",
+  "repository": "https://github.com/cKauan/mkt-project",
+  "author": "Carlos Kauãn",
+  "private": true,
+  "scripts": {
+    "dev": "nodemon --ignore node_modules src/server.js"
+  },
+  "devDependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "mongoose": "^5.10.4",
+    "mongoose-paginate": "^5.0.3",
+    "nunjucks": "^3.2.2",
+    "require-dir": "^1.2.0"
+  }
+}
