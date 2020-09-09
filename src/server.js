@@ -2,9 +2,11 @@ const express = require('express');
 const nunjucks = require('nunjucks');
 const mongoose = require('mongoose');
 const requireDir = require('require-dir');
+const dotenv = require('dotenv');
 const app = express();
+dotenv.config();
 
-const URL = "mongodb+srv://dbUser:dbUser@cluster0.h7eny.mongodb.net/appData?retryWrites=true&w=majority";
+const URL = process.env.MONGODB_URI;
 mongoose.connect(URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
