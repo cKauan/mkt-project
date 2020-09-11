@@ -1,0 +1,48 @@
+{% extends 'layout.njk' %}
+{% block content %}
+    <form class="mt-4 mx-auto border p-4 rounded-lg" method="POST" action="create" style="max-width: 800px; box-shadow: 1px 1px 10px #0000002f">
+        <div class="form-group">
+            <label for="username">Nome Completo</label>
+            <input type="text" name="name" class="form-control" minlength="4" required="required">
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="userphone">Telefone</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">+55 (85)</span>
+                    </div>
+                    <input type="tel" name="phone" class="form-control" aria-describedby="basic-addon1" maxlength="9" required="required">
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="userbought">Valor</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon2">R$</span>
+                    </div>
+                    <input type="text" id="real" name="buy" class="form-control" aria-describedby="basic-addon2" required="required">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="usernotes">Notas sobre o usuário</label>
+            <textarea class="form-control" name="notes" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-block btn-primary mt-4">Cadastrar</button>
+    </form>
+
+{% endblock %}
+{% block script %}
+    <script src="https://cdn.jsdelivr.net/npm/autonumeric@4.1.0"></script>
+    <script>
+        new AutoNumeric("#real", {
+            decimalCharacter: ",",
+            digitGroupSeparator: "."
+        })
+        window.addEventListener('load', () => {
+            document.querySelector('form').reset();
+        })
+    </script>
+{% endblock %}

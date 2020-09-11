@@ -1,0 +1,45 @@
+{% extends 'layout.njk' %}
+{% block content %}
+
+    {% if usersList.total == 0 %}
+        {% include './utils/notFound.njk' %}
+    {% else %}
+        <div class="add-user d-flex justify-content-end my-3 mr-1">
+            <a class="bg-danger btn" href="users/create">
+                <img src="/assets/images/plus.svg" alt="" width="15" height="15">
+            </a>
+        </div>
+
+        <div class="mobile-list d-block d-lg-none">
+            <ul class="list-group">
+                {% for user in usersList.docs %}
+                    {% include './utils/mobileUsers.njk' %}
+                {% endfor %}
+            </ul>
+        </div>
+
+        <table class="table table-bordered d-none d-lg-table">
+            <thead>
+                <tr>
+                    <th scope="col" class="text-center">Nome Completo</th>
+                    <th scope="col" class="text-center">Telefone</th>
+                    <th scope="col" class="text-center">Progresso</th>
+                    <th scope="col" class="text-center" style="width: 165px">Comprou (R$)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in usersList.docs %}
+                    {% include './utils/notMobileUsers.njk' %}
+                {% endfor %}
+                <div id="modal-container"></div>
+            </tbody>
+        </table>
+
+</ul>
+{% include './utils/controlPages.njk' %}
+{% endif %}
+
+{% endblock %}
+{% block script %}
+<script src="/assets/js/users.js"></script>
+{% endblock %}

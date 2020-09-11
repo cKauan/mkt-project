@@ -1,0 +1,43 @@
+{% extends 'layout.njk' %}
+
+{% block content %}
+
+    <h1 class="font-weight-light text-center border-bottom py-3 h3">Bem vindo</h1>
+    <p class="text-justify">The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will change.</p>
+    <p class="text-justify">Make sure to keep all page content within the
+        <code>#page-content-wrapper</code>. The top navbar is optional, and just for demonstration. Just create an element with the
+        <code>#menu-toggle</code>
+        ID which will toggle the menu when clicked.</p>
+    <div class="card text-center my-5 mx-auto modal-container">
+        <div class="card-header justify-content-between d-flex">
+            Meu Sistema
+            <span class="close-modal mt-1">
+                <img src="https://image.flaticon.com/icons/svg/1828/1828665.svg" width="20" height="20" alt="">
+            </span>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title border-bottom pb-2 ">Bem Vindo</h5>
+            <p class="card-text text-justify text-md-center">
+                Aqui vamos te apresentar um ótimo tutorial para que você possa estar familiarizado com o nosso sistema o mais rápido possível
+            </p>
+            <a href="#" class="btn btn-primary">Assistir ao vídeo</a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script>
+        const closeModal = document.querySelector(".close-modal");
+        const modalContainer = document.querySelector(".modal-container");
+
+        if (localStorage.hide) {
+            modalContainer.style.display = "none";
+        }
+        closeModal.addEventListener('click', (el) => {
+            el.preventDefault();
+            modalContainer.style.transform = "translateY(-5000px)";
+            localStorage.setItem('hide', true)
+        })
+    </script>
+
+{% endblock %}

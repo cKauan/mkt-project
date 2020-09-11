@@ -1,78 +1,93 @@
 <html lang="pt-br">
     <head>
-        {% block head %}
-            <title>Painel de Administração</title>
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-            <meta name="description" content="Um painel administrativo para gerenciar usuários capturar leads">
-            <meta name="author" content="Carlos Kauãn">
-            <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-            <link rel="stylesheet" href="styles.css">
+        <title>{{ pageTitle }}</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Um painel administrativo para gerenciar usuários capturar leads">
+        <meta name="author" content="Carlos Kauãn">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+        <link rel="shortcut icon" href="https://image.flaticon.com/icons/svg/610/610106.svg" type="image/x-icon">
+        <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/assets/css/styles.css">
 
-        {% endblock %}
     </head>
+    <body>
 
-    <div class="d-flex" id="wrapper">
-
-        <!-- Sidebar -->
-        <div class="bg-light border-right" id="sidebar-wrapper">
-            <div class="sidebar-heading">Start Bootstrap
+        <div class="d-flex" id="wrapper">
+            <!-- Sidebar -->
+            <div class="bg-light border-right" id="sidebar-wrapper">
+                <div class="sidebar-heading">Meu Sistema
+                </div>
+                <div class="list-group list-group-flush">
+                    <a href="/" class="list-group-item list-group-item-action bg-light">Dashboard</a>
+                    <a href="/users" class="list-group-item list-group-item-action bg-light">Fidelizados
+                        {% if usersQtd > 0 %}
+                            <span class="badge badge-success">{{ usersQtd }}</span>
+                        {% endif %}
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action bg-light">Premiados
+                        {% if loyalQtd > 0 %}
+                            <span class="badge badge-warning">{{ loyalQtd }}</span>
+                        {% endif %}
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
+                </div>
             </div>
-            <div class="list-group list-group-flush">
-                <a href="#" class="list-group-item list-group-item-action bg-light">Dashboard</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Shortcuts</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Overview</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
-            </div>
-        </div>
-        <!-- /#sidebar-wrapper -->
+            <!-- /#sidebar-wrapper -->
 
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
+            <!-- Page Content -->
+            <div id="page-content-wrapper">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom justify-content-between">
+                    <button class="btn btn-transparent menu-toggle">
+                        <img src="https://image.flaticon.com/icons/svg/545/545705.svg" width="30" height="30" alt="">
+                        {% if loyalQtd > 0 %}
+                            <span class="badge badge-warning">{{ loyalQtd }}</span>
+                        {% endif %}
+                    </button>
+                    <h1 class="h4 font-weight-light my-auto">{{ pageTitle }}</h1>
+                    <div class="user-profile dropleft">
+                        <span class="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="https://avatars2.githubusercontent.com/u/62940724?v=4" width="50" height="50" alt="">
+                        </span>
+                        <div class="dropdown">
+                            <div class="dropdown-menu">
+                                <h6 class="dropdown-header text-center border-bottom">{{ userName }}</h6>
+                                <a class="dropdown-item py-2" href="#">
+                                    Perfil
+                                    <i class="far fa-user"></i>
+                                </a>
+                                <a class="dropdown-item py-2" href="#">
+                                    Ajustes
+                                    <i class="fas fa-cogs"></i>
+                                </a>
+                                <a class="dropdown-item py-2" href="#">
+                                    Sair
+                                    <i class="fas fa-sign-out-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-                <button class="btn btn-transparent menu-toggle">
-                    <img src="https://image.flaticon.com/icons/svg/545/545705.svg" width="30" height="30" alt="">
-                </button>
-
-                {# <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon menu-toggle"></span>
-                </button> #}
-                <div class="navbar">
-                    
+                <div class="container-fluid px-5 py-2">
+                    {% block content %}{% endblock %}
                 </div>
 
-            </nav>
-
-            <div class="container-fluid px-5">
-                <h1 class="mt-4 font-weight-light text-center border-bottom pb-2 mb-4">Bem Vindo</h1>
-                <p class="text-justify">The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will change.</p>
-                <p class="text-justify">Make sure to keep all page content within the
-                    <code>#page-content-wrapper</code>. The top navbar is optional, and just for demonstration. Just create an element with the
-                    <code>#menu-toggle</code>
-                    ID which will toggle the menu when clicked.</p>
             </div>
+            <!-- /#page-content-wrapper -->
+
         </div>
-        <!-- /#page-content-wrapper -->
+        <!-- /#wrapper -->
 
-    </div>
-    <!-- /#wrapper -->
+        <!-- Bootstrap core JavaScript -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="/assets/js/bootstrap.min.js"></script>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-
-    <!-- Menu Toggle Script -->
-    <script>
-        $(".menu-toggle").click(function (e) {
-            e.preventDefault();
-            $("#wrapper").toggleClass("toggled");
-        });
-    </script>
-
-</body>
+        <!-- Menu Toggle Script -->
+        <script src="/assets/js/index.js"></script>
+        {% block script %}{% endblock %}
+    </body>
 
 </html>
