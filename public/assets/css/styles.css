@@ -1,0 +1,229 @@
+/*!
+ * Start Bootstrap - Simple Sidebar (https://startbootstrap.com/templates/simple-sidebar)
+ * Copyright 2013-2020 Start Bootstrap
+ * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-simple-sidebar/blob/master/LICENSE)
+ */
+
+#wrapper {
+    overflow-x: hidden;
+}
+
+#sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: -15rem;
+    -webkit-transition: margin .25s ease-out;
+    -moz-transition: margin .25s ease-out;
+    -o-transition: margin .25s ease-out;
+    transition: margin .25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+    width: 15rem;
+}
+
+#page-content-wrapper {
+    min-width: 100vw;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+}
+
+/* .navbar > button {
+    margin: 10px;
+    width: 35px;
+    background-size: 100% 100%;
+    height: 35px;
+    opacity: 1;
+    background-image: url('https://image.flaticon.com/icons/svg/1828/1828665.svg');
+    
+}
+
+.navbar > .close {
+    margin: 10px;
+    width: 35px;
+    background-size: 100% 100%;
+    height: 35px;
+    opacity: 1;
+    background-image: url("https://image.flaticon.com/icons/svg/2099/2099153.svg")
+} */
+
+body {
+    position: relative;
+}
+
+.modal-container {
+    width: 40%;
+    transition: transform 2s;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 1px 1px 100vh 100vh #0000009f;
+    z-index: 10;
+}
+
+#user-container {
+    width: 80%;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 1px 1px 100vh 100vh #0000009f;
+    z-index: 10;
+}
+
+.hide {
+    display: none;
+}
+
+.close-modal {
+    cursor: pointer;
+}
+
+.card-body .btn {
+    transition: 0.2s;
+}
+
+.card-body .btn:hover {
+    transform: translateY(-2px);
+}
+
+.user-options {
+    cursor: pointer;
+    margin: auto;
+    background-color: #eee;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.page-numbers {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+.user-profile {
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.dropdown-menu .dropdown-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.user-profile .dropdown .dropdown-menu {
+    margin: -5px;
+}
+
+.user-profile img {
+    border-radius: 50vh;
+    border: 2px solid #c77015;
+}
+
+@media (min-width: 768px) {
+    #sidebar-wrapper {
+        margin-left: 0;
+    }
+
+    #page-content-wrapper {
+        min-width: 0;
+        width: 100%;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        margin-left: -15rem;
+    }
+
+}
+
+
+@media (max-width: 768px) {
+    .modal-container {
+        width: 90%;
+    }
+
+    #user-container {
+        top: 55%;
+    }
+}
+
+
+.table tr td .progress {
+    margin-top: 10px;
+}
+
+.progress-bar-danger {
+    background-color: #dd4b39
+}
+
+.progress-xs {
+    height: 7px
+}
+
+.progress-bar-yellow,
+.progress-bar-warning {
+    background-color: #f39c12
+}
+
+.progress-bar-primary {
+    background-color: #3c8dbc
+}
+
+.progress-bar-success {
+    background-color: #00a65a
+}
+
+
+.pull-right {
+    float: right !important
+}
+
+.pagination>li {
+    display: inline
+}
+
+.pagination-sm>li:first-child>a,
+.pagination-sm>li:first-child>span {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px
+}
+
+.pagination>li:first-child>a,
+.pagination>li:first-child>span {
+    margin-left: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px
+}
+
+.pagination>li>a {
+    background: #fafafa;
+    color: #666
+}
+
+.pagination-sm>li>a,
+.pagination-sm>li>span {
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5
+}
+
+.pagination>li>a,
+.pagination>li>span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #337ab7;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd
+}
