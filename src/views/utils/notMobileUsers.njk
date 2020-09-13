@@ -6,7 +6,7 @@
                 <!-- Dropdown menu links -->
                 <button class="dropdown-item py-2" onclick="showUser('{{ user.id }}')">Ver<i class="fas fa-eye"></i>
                 </button>
-                <a href="" class="dropdown-item py-2">Editar<i class="far fa-edit"></i>
+                <a href="/users/edit/{{ user.id }}" class="dropdown-item py-2">Editar<i class="far fa-edit"></i>
                 </a>
                 <button class="dropdown-item py-2" onclick="deleteUser('{{ user.id }}')">Apagar<i class="far fa-trash-alt"></i>
                 </button>

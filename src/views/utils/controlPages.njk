@@ -1,13 +1,13 @@
 <div class="page-numbers">
-    {% if usersList.page > 1 and page < usersList.pages %}
-        <a href="/users?page={{ usersList.page - 1 | int}}" class="btn btn-danger">Anterior</a>
-        <a href="/users?page={{ 1 + usersList.page | int }}" class="btn btn-danger">Próximo</a>
-    {% elif usersList.page <= 1 and usersList.page < usersList.pages %}
+    {% if usersList.hasPrevPage == false and usersList.hasNextPage == true %}
         <a href="#" class="btn btn-danger disabled">Anterior</a>
         <a href="#" class="btn btn-danger">Próximo</a>
-    {% elif usersList.page > 1 and usersList.page >= usersList.pages %}
+    {% elif usersList.hasPrevPage == true and usersList.hasNextPage == false %}
         <a href="/users?page={{ usersList.page - 1 | int}}" class="btn btn-danger">Anterior</a>
         <a href="#" class="btn btn-danger disabled">Próximo</a>
+    {% elif usersList.hasPrevPage == true and usersList.hasNextPage == true %}
+        <a href="/users?page={{ usersList.page - 1 | int}}" class="btn btn-danger">Anterior</a>
+        <a href="/users?page={{ 1 + usersList.page | int }}" class="btn btn-danger">Próximo</a>
     {% else %}
         <a href="#" class="btn btn-danger disabled">Anterior</a>
         <a href="#" class="btn btn-danger disabled">Próximo</a>

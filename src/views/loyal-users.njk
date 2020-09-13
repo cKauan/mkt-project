@@ -1,0 +1,90 @@
+{% extends 'layout.njk' %}
+{% block content %}
+
+    {% if usersList.totalDocs == 0 %}
+        {% include './utils/notFound.njk' %}
+    {% else %}
+        <div class="add-user d-flex justify-content-between px-2 mt-3">
+            <p class="my-auto font-weight-light font-italic text-muted">
+                {{ loyalQtd }}
+                usuário(s) premiado(s)</p>
+
+        </div>
+
+        <div class="mobile-list d-block d-lg-none">
+            <ul class="list-group">
+                {% for user in usersList.docs %}
+                    <li class="list-group-item d-flex justify-content-between">
+                        <a href="#" class="my-auto font-weight-bold text-dark text-truncate mr-1">{{ user.name }}</a>
+                        <div class="btn-group dropright">
+                            <button class="btn bg-light border" data-toggle="dropdown" aria-haspopup="true" aria-extended="false">
+                                <i class="far fa-caret-square-left my-auto"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                                <!-- Dropdown menu links -->
+                                <button class="dropdown-item py-2" onclick="showUser('{{ user.id }}')">Ver<i class="fas fa-eye"></i>
+                                </button>
+                                <a href="/users/edit/{{ user.id }}" class="dropdown-item py-2">Editar<i class="far fa-edit"></i>
+                                </a>
+                                <button class="dropdown-item py-2" onclick="deleteUser('{{ user.id }}')">Apagar<i class="far fa-trash-alt"></i>
+                                </button>
+                                <a href="#" class="dropdown-item py-2" onclick="sendMessage({{ user.phone }})">Mensagem<i class="fab fa-whatsapp text-success"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <table class="table table-bordered d-none d-lg-table">
+            <thead>
+                <tr>
+                    <th scope="col" class="text-center">Nome Completo</th>
+                    <th scope="col" class="text-center">Telefone</th>
+                    <th scope="col" class="text-center" style="width: 165px">Comprou (R$)</th>
+                    <th scope="col" class="text-center" style="width: 80px">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in usersList.docs %}
+                    <tr>
+                        <td>
+                            <div class="btn-group dropright">
+                                <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ user.name }}</a>
+                                <div class="dropdown-menu">
+                                    <!-- Dropdown menu links -->
+                                    <button class="dropdown-item py-2" onclick="showUser('{{ user.id }}')">Ver<i class="fas fa-eye"></i>
+                                    </button>
+                                    <a href="/users/edit/{{ user.id }}" class="dropdown-item py-2">Editar<i class="far fa-edit"></i>
+                                    </a>
+                                    <button class="dropdown-item py-2" onclick="deleteuser('{{ user.id }}')">Apagar<i class="far fa-trash-alt"></i>
+                                    </button>
+                                    <a href="#" class="dropdown-item py-2" onclick="sendMessage({{ user.phone }})">Mensagem<i class="fab fa-whatsapp text-success"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>{{ user.phone }}</td>
+
+                        <td class="text-left">{{ user.buy | replace('.', ',') }}</td>
+                        <td class="text-center">
+                            <a href="#" class="h5" onclick="sendMessage({{ user.phone }})">
+                                <i class="fab fa-whatsapp text-success"></i>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                <div id="send-message"></div>
+                <div id="modal-container"></div>
+            </tbody>
+        </table>
+
+</ul>
+{% include './utils/controlPages.njk' %}
+{% endif %}
+
+{% endblock %}
+{% block script %}
+<script src="/assets/js/users.js"></script>
+{% endblock %}

@@ -1,11 +1,12 @@
 {% extends 'layout.njk' %}
 {% block content %}
 
-    {% if usersList.total == 0 %}
+    {% if usersList.totalDocs == 0 %}
         {% include './utils/notFound.njk' %}
     {% else %}
-        <div class="add-user d-flex justify-content-end my-3 mr-1">
-            <a class="bg-danger btn" href="users/create">
+        <div class="add-user d-flex justify-content-between px-2 mt-3">
+            <p class="my-auto font-weight-light font-italic text-muted">Mostrando {{ usersQtd }} usuários</p>
+            <a class="bg-danger btn mb-2" href="users/create">
                 <img src="/assets/images/plus.svg" alt="" width="15" height="15">
             </a>
         </div>

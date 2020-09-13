@@ -19,19 +19,33 @@
                 <div class="sidebar-heading">Meu Sistema
                 </div>
                 <div class="list-group list-group-flush">
-                    <a href="/" class="list-group-item list-group-item-action bg-light">Dashboard</a>
-                    <a href="/users" class="list-group-item list-group-item-action bg-light">Fidelizados
+                    <a href="/" class="list-group-item list-group-item-action bg-light">
+                        <i class="fas fa-tachometer-alt mr-3"></i>
+                        Dashboard
+                    </a>
+                    <a href="/users" class="list-group-item list-group-item-action bg-light">
+                        <i class="fas fa-users mr-3"></i>
+                        Fidelizados
                         {% if usersQtd > 0 %}
                             <span class="badge badge-success">{{ usersQtd }}</span>
                         {% endif %}
                     </a>
-                    <a href="#" class="list-group-item list-group-item-action bg-light">Premiados
+                    <a href="/users/loyal" class="list-group-item list-group-item-action bg-light">
+                        <i class="fas fa-star mr-3"></i>
+                        Premiados
                         {% if loyalQtd > 0 %}
                             <span class="badge badge-warning">{{ loyalQtd }}</span>
                         {% endif %}
                     </a>
-                    <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
-                    <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-light">
+                        <i class="fas fa-id-badge mr-3 ml-1"></i>
+                        Perfil
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action bg-light">
+                        <i class="fas fa-cogs mr-3"></i>
+                        Ajustes
+
+                    </a>
                 </div>
             </div>
             <!-- /#sidebar-wrapper -->
@@ -48,11 +62,11 @@
                     <h1 class="h4 font-weight-light my-auto">{{ pageTitle }}</h1>
                     <div class="user-profile dropleft">
                         <span class="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="https://avatars2.githubusercontent.com/u/62940724?v=4" width="50" height="50" alt="">
+                            <img src="{{ loggedUserInfo.picture }}" width="50" height="50" alt="">
                         </span>
                         <div class="dropdown">
                             <div class="dropdown-menu">
-                                <h6 class="dropdown-header text-center border-bottom">{{ userName }}</h6>
+                                <h6 class="dropdown-header text-center border-bottom">{{ loggedUserInfo.name }}</h6>
                                 <a class="dropdown-item py-2" href="#">
                                     Perfil
                                     <i class="far fa-user"></i>
@@ -61,7 +75,7 @@
                                     Ajustes
                                     <i class="fas fa-cogs"></i>
                                 </a>
-                                <a class="dropdown-item py-2" href="#">
+                                <a class="dropdown-item py-2" href="/logout">
                                     Sair
                                     <i class="fas fa-sign-out-alt"></i>
                                 </a>
@@ -84,6 +98,7 @@
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <script src="/assets/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/autonumeric@4.1.0"></script>
 
         <!-- Menu Toggle Script -->
         <script src="/assets/js/index.js"></script>
