@@ -6,7 +6,6 @@
     "description": "Uma APP de fidelização de clientes",
     "repository": "https://github.com/cKauan/mkt-project",
     "author": "Carlos Kauãn",
-    "private": true,
     "scripts": {
         "dev": "nodemon --ignore node_modules src/server.js",
         "start": "node src/server.js"
