@@ -25,12 +25,19 @@ CALLBACK_URL = Google Credentials
 ```
 You can see more about google credentials at passports.js <a href="http://www.passportjs.org/packages/passport-google-oauth20/" target="_blank">documentation</a>
 
-## :new: Project Responsibilities
+## :bookmark: Project Responsibilities
 
 - [x] Admin Panel
 - [x] User Registration
 - [x] User Management
 - [x] Send Whatsapp Messages
+
+## 🧠 How it Works
+
+* You log in your google account and access the sistem.
+* Logged, you can register users.
+* When the registered users get more then 500 reais, they become awarded users.
+* At awarded users tab, you can send whatsapp messages to their registered numbers.
 
 ## :raised_hand: Contributions
 To Sugestions, open an "issue", be free to do it.
