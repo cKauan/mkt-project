@@ -1,1 +1,1 @@
-web: MONGODB_URI=mongodb+srv://dbUser:dbUser@cluster0.h7eny.mongodb.net/appData?retryWrites=true&w=majority GOOGLE_CLIENT_ID=1083119055370-d7g6fi0k1s0s6la8to62o3j0qdij5ijb.apps.googleusercontent.com GOOGLE_CLIENT_SECRET=cCDszcdFcKzdCjbk1-fpXI3Z node src/server.js
+web: MONGODB_URI="mongodb+srv://dbUser:dbUser@cluster0.h7eny.mongodb.net/appData?retryWrites=true&w=majority" GOOGLE_CLIENT_ID=1083119055370-d7g6fi0k1s0s6la8to62o3j0qdij5ijb.apps.googleusercontent.com GOOGLE_CLIENT_SECRET=cCDszcdFcKzdCjbk1-fpXI3Z node src/server.js
