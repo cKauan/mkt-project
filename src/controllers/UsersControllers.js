@@ -25,7 +25,6 @@ module.exports = {
         }
         return res.render('dashboard.njk', resources);
     },
-
     async indexUsers(req, res) {
         const { page = 1 } = req.query;
         const usersList = await User.paginate({}, { page, limit: 10 });

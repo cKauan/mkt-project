@@ -1,13 +1,35 @@
 {% extends 'layout.njk' %}
 
 {% block content %}
+    <div class="row d-flex justify-content-between">
+        <div class="card mt-4 col-12 col-lg-6 p-0">
+            <h5 class="card-header text-center font-weight-light">Relatório dos Usuários</h5>
+            <div class="card-body text-center">
+                <div id="piechart" class="text-center" ></div>
+                <a href="#" class="btn btn-primary mt-3">Visualizar todos os Usuários</a>
+            </div>
+        </div>
+        <div class="card mt-4 col-12 col-lg-5 p-0">
+            <h5 class="card-header text-center font-weight-light">Projeto</h5>
+            <div class="card-body">
+                <h5 class="card-title text-center border-bottom pb-2">Sobre o Projeto</h5>
+                <p class="card-text text-justify">Esse projeto surgiu com a necessidade da prática e aprendizado de tecnologias como <strong class="text-success">MongoDB</strong>, <strong class="text-warning">Nunjucks</strong>, <strong class="text-dark"> PassPortJS</strong>, <strong class="text-success">NodeJS</strong>, <strong class="text-primary">Bootstrap</strong> entre outras.</p>
 
-    <h1 class="font-weight-light text-center border-bottom py-3 h3">Bem vindo</h1>
-    <p class="text-justify">The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will change.</p>
-    <p class="text-justify">Make sure to keep all page content within the
-        <code>#page-content-wrapper</code>. The top navbar is optional, and just for demonstration. Just create an element with the
-        <code>#menu-toggle</code>
-        ID which will toggle the menu when clicked.</p>
+                <small class="text-center text-muted font-italic">Você pode contribuir me seguindo nas redes sociais abaixo!</small>
+                <div class="btn-group mt-4 justify-content-center d-flex" role="group" aria-label="Basic example">
+                    <a href="https://github.com/cKauan" target="_blank" class="btn btn-dark">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://twitter.com/carlaodamassaa" target="_blank" class="btn btn-primary">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="mailto:carloskauanmoreiradesousa@gmail.com" target="_blank" class="btn btn-danger">
+                        <i class="fas fa-mail-bulk"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="card text-center my-5 mx-auto page-container">
         <div class="card-header justify-content-between d-flex">
             Meu Sistema
@@ -26,16 +48,60 @@
 {% endblock %}
 
 {% block script %}
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script>
+        const usersQtd = {{ usersQtd }};
+        const loyalQtd = {{ loyalQtd }};
+        google
+            .charts
+            .load('current', {'packages': ['corechart']});
+        google
+            .charts
+            .setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data = google
+                .visualization
+                .arrayToDataTable([
+                    [
+                        'Task', 'Hours per Day'
+                    ],
+                    [
+                        'Vazio', 100
+                    ],
+                    [
+                        'Fidelizados', usersQtd
+                    ],
+                    [
+                        'Premiados', loyalQtd
+                    ]
+                ]);
+
+            var options = {
+                title: 'Usuários Premiados'
+            };
+
+            var chart = new google
+                .visualization
+                .PieChart(document.getElementById('piechart'));
+
+            chart.draw(data, options);
+        }
+
         const closeModal = document.querySelector(".close-modal");
         const modalContainer = document.querySelector(".page-container");
 
         if (localStorage.hide) {
-            modalContainer.classList.add('hide');
+            modalContainer
+                .classList
+                .add('hide');
         }
         closeModal.addEventListener('click', (el) => {
             el.preventDefault();
-            modalContainer.classList.add('hide');
+            modalContainer
+                .classList
+                .add('hide');
             localStorage.setItem('hide', true)
         })
     </script>
