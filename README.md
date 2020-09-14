@@ -5,6 +5,19 @@ A Project to Manage and to Award Registered Users
 ## :computer: Website
 https://mkt-project.herokuapp.com/
 
+## :brain: Tecnologias Utilizadas 
+<p align="left">
+  <img src="https://devicons.github.io/devicon/devicon.git/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> 
+  <img src="https://devicons.github.io/devicon/devicon.git/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/>
+  <img src="https://devicons.github.io/devicon/devicon.git/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/>
+  <img src="https://devicons.github.io/devicon/devicon.git/icons/nodejs/nodejs-original.svg" alt="nodejs" width="40" height="40"/>
+  <img src="https://devicons.github.io/devicon/devicon.git/icons/express/express-original.svg" alt="express" width="40" height="40"/>
+  <img src="https://devicon.dev/devicon.git/icons/mongodb/mongodb-original.svg" alt="mongo" width="40" height="40"/>
+  <img src="https://mozilla.github.io/nunjucks/img/favicon.png" alt="nunjucks" width="40" height="40"/>
+  <br>
+  <br>
+</p>
+
 ## :pushpin: Installation
 Use ```npm``` or ```yarn``` to install all dependencies
 ```bash
@@ -14,6 +27,7 @@ or
 ```bash
 npm install
 ```
+
 
 ## :pencil: How to Use
 You'll need create a ```.env``` file and set these environment variables
@@ -32,7 +46,7 @@ You can see more about google credentials at passports.js <a href="http://www.pa
 - [x] User Management
 - [x] Send Whatsapp Messages
 
-## 🧠 How it Works
+## :information_source: How it Works
 
 * You log in your google account and access the sistem.
 * Logged, you can register users.
