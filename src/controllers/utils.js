@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const User = mongoose.model('Users');
-
 exports.convertFormatNumberToDBNumber = (number) => {
     number = number.replace('.', '');
     number = number.replace(',', '.');
