@@ -19,13 +19,15 @@ https://mkt-project.herokuapp.com/
 </p>
 
 ## :pushpin: Installation
-Use ```npm``` or ```yarn``` to install all dependencies
+Using ```yarn``` to install all dependencies
 ```bash
 yarn
 ```
-or
+
+To run the server
+
 ```bash
-npm install
+yarn dev
 ```
 
 
