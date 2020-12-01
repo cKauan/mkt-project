@@ -2,9 +2,6 @@
 # :clipboard: User Manager
 A Project to Manage and to Award Registered Users
 
-## :computer: Website
-https://mkt-project.herokuapp.com/
-
 ## :brain: Used Technologies 
 <p align="left">
   <img src="https://devicons.github.io/devicon/devicon.git/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> 
